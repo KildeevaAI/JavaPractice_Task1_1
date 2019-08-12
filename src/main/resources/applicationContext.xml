@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="VegBean1"
+          class="SGU.Kildeeva.SpringPractice.Vegetables"
+    scope = "prototype">
+        <constructor-arg type = "java.lang.String" value = "carrot"/>
+        <constructor-arg type = "int" value = "41"/>
+        <constructor-arg type = "int" value = "2"/>
+    </bean>
+
+    <bean id="VegBean2"
+          class="SGU.Kildeeva.SpringPractice.Vegetables">
+        <constructor-arg type = "java.lang.String" value = "cabbage"/>
+        <constructor-arg type = "int" value = "25"/>
+        <constructor-arg type = "int" value = "1"/>
+    </bean>
+
+
+    <bean id="VegBean3"
+          class="SGU.Kildeeva.SpringPractice.Vegetables">
+        <constructor-arg type = "java.lang.String" value = "beet"/>
+        <constructor-arg type = "int" value = "43"/>
+        <constructor-arg type = "int" value = "1"/>
+    </bean>
+
+    <bean id="VegMealBean1"
+          class="SGU.Kildeeva.SpringPractice.VegMeal">
+
+            <property name="products">
+                <set>
+                    <ref bean="VegBean1"/>
+                    <ref bean="VegBean2"/>
+                    <ref bean="VegBean3"/>
+                </set>
+            </property>
+    </bean>
+
+    <bean id="VegMealBean2"
+          class="SGU.Kildeeva.SpringPractice.VegMeal">
+
+        <property name="products">
+            <set>
+                <ref bean="VegBean1"/>
+                <ref bean="VegBean3"/>
+            </set>
+        </property>
+    </bean>
+
+
+
+    <bean id="MeatBean1"
+          class="SGU.Kildeeva.SpringPractice.Meat">
+        <constructor-arg type = "java.lang.String" value = "beef"/>
+        <constructor-arg type = "int" value = "187"/>
+        <constructor-arg type = "int" value = "1"/>
+    </bean>
+
+    <bean id="MeatBean2"
+          class="SGU.Kildeeva.SpringPractice.Meat">
+        <constructor-arg type = "java.lang.String" value = "pork"/>
+        <constructor-arg type = "int" value = "250"/>
+        <constructor-arg type = "int" value = "1"/>
+    </bean>
+
+
+    <bean id="MeatMealBean"
+          class="SGU.Kildeeva.SpringPractice.MeatMeal">
+        <property name="products">
+            <set>
+                <ref bean="MeatBean1"/>
+                <ref bean="MeatBean2"/>
+            </set>
+        </property>
+
+    </bean>
+
+    <bean id="ChefBean"
+          class="SGU.Kildeeva.SpringPractice.Chef">
+    </bean>
+
+
+
+</beans>
